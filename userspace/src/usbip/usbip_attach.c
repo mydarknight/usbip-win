@@ -27,6 +27,7 @@
 #include "dbgcode.h"
 
 #include "usbip_dscr.h"
+#include "usbip_util.h"
 
 #define ATTACHER	"attacher.exe"
 
@@ -218,6 +219,7 @@ create_pipe(HANDLE *phRead, HANDLE *phWrite)
 static int
 execute_attacher(HANDLE hdev, SOCKET sockfd, int rhport)
 {
+	char	*path_attacher;
 	STARTUPINFO	si;
 	PROCESS_INFORMATION	pi;
 	HANDLE	hRead, hWrite;
@@ -234,7 +236,10 @@ execute_attacher(HANDLE hdev, SOCKET sockfd, int rhport)
 	si.dwFlags = STARTF_USESTDHANDLES;
 	ZeroMemory(&pi, sizeof(pi));
 
-	res = CreateProcess(ATTACHER, ATTACHER, NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi);
+	path_attacher = get_abspath_from_modpath(ATTACHER);
+	res = CreateProcess(path_attacher, ATTACHER, NULL, NULL, TRUE, 0, NULL, NULL, &si, &pi);
+	free(path_attacher);
+
 	if (!res) {
 		DWORD	err = GetLastError();
 		if (err == ERROR_FILE_NOT_FOUND)
@@ -328,11 +333,15 @@ attach_device(const char *host, const char *busid, const char *serial, BOOL ters
 static BOOL
 check_attacher(void)
 {
+	char	*path_attacher;
 	DWORD	bintype;
+	BOOL	res = FALSE;
 
-	if (!GetBinaryType(ATTACHER, &bintype))
-		return FALSE;
-	return TRUE;
+	path_attacher = get_abspath_from_modpath(ATTACHER);
+	if (GetBinaryType(path_attacher, &bintype))
+		res = TRUE;
+	free(path_attacher);
+	return res;
 }
 
 int usbip_attach(int argc, char *argv[])
