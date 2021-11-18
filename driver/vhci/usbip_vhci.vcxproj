@@ -218,6 +218,9 @@
       <Command>gencat.bat $(OutDir) 10_$(DDKPlatform) $(SolutionDir)/driver/usbip_test.pfx
 </Command>
     </PostBuildEvent>
+    <DriverSign>
+      <FileDigestAlgorithm>SHA1</FileDigestAlgorithm>
+    </DriverSign>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -239,6 +242,9 @@
       <Command>gencat.bat $(OutDir) 10_$(DDKPlatform) $(SolutionDir)/driver/usbip_test.pfx
 </Command>
     </PostBuildEvent>
+    <DriverSign>
+      <FileDigestAlgorithm>SHA1</FileDigestAlgorithm>
+    </DriverSign>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
@@ -261,6 +267,9 @@
       <Command>gencat.bat $(OutDir) 10_$(DDKPlatform) $(SolutionDir)/driver/usbip_test.pfx
 </Command>
     </PostBuildEvent>
+    <DriverSign>
+      <FileDigestAlgorithm>SHA1</FileDigestAlgorithm>
+    </DriverSign>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
     <ClCompile>
@@ -305,6 +314,9 @@
       <Command>gencat.bat $(OutDir) 10_$(DDKPlatform) $(SolutionDir)/driver/usbip_test.pfx
 </Command>
     </PostBuildEvent>
+    <DriverSign>
+      <FileDigestAlgorithm>SHA1</FileDigestAlgorithm>
+    </DriverSign>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
     <ClCompile>
