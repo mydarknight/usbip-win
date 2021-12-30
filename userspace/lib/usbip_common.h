@@ -33,6 +33,7 @@
 #define ERR_CERTIFICATE	(-12)
 #define ERR_ALREADYBIND	(-13)
 #define ERR_NOTBIND	(-14)
+#define ERR_BADBIND	(-15)
 
 /* FIXME: how to sync with drivers/usbip_common.h ? */
 enum usbip_device_status{
