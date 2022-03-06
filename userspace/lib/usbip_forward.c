@@ -578,6 +578,8 @@ static volatile BOOL	interrupted;
 static void
 signalhandler(int signal)
 {
+	UNREFERENCED_PARAMETER(signal);
+
 	interrupted = TRUE;
 	SetEvent(hEvent);
 }

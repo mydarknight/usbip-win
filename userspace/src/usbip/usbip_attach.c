@@ -45,6 +45,8 @@ void usbip_attach_usage(void)
 static int
 import_device(SOCKET sockfd, pvhci_pluginfo_t pluginfo, HANDLE *phdev)
 {
+	UNREFERENCED_PARAMETER(sockfd);
+
 	HANDLE	hdev;
 	int	rc;
 
@@ -224,6 +226,8 @@ execute_attacher(HANDLE hdev, SOCKET sockfd, int rhport)
 	HANDLE	hdev_attacher, sockfd_attacher;
 	BOOL	res;
 	int	ret = ERR_GENERAL;
+
+	UNREFERENCED_PARAMETER(rhport);
 
 	if (!create_pipe(&hRead, &hWrite))
 		return ERR_GENERAL;

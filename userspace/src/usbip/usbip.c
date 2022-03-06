@@ -142,6 +142,9 @@ static int usbip_help(int argc, char *argv[])
 
 static int usbip_version(int argc, char *argv[])
 {
+	UNREFERENCED_PARAMETER(argc);
+	UNREFERENCED_PARAMETER(argv);
+
 	printf("usbip (%s)\n", usbip_version_string);
 	return 0;
 }
