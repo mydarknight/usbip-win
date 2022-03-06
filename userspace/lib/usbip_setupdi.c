@@ -93,7 +93,7 @@ get_intf_detail(HDEVINFO dev_info, PSP_DEVINFO_DATA pdev_info_data, LPCGUID pgui
 
 	dev_interface_data.cbSize = sizeof(SP_DEVICE_INTERFACE_DATA);
 	if (!SetupDiEnumDeviceInterfaces(dev_info, pdev_info_data, pguid, 0, &dev_interface_data)) {
-		DWORD	err = GetLastError();
+		err = GetLastError();
 		if (err != ERROR_NO_MORE_ITEMS)
 			dbg("SetupDiEnumDeviceInterfaces failed: err: 0x%lx", err);
 		return NULL;
