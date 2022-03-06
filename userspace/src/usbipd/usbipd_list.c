@@ -39,6 +39,9 @@ typedef struct {
 static int
 walker_edev_list(HDEVINFO dev_info, PSP_DEVINFO_DATA pdev_info_data, devno_t devno, void *ctx)
 {
+	UNREFERENCED_PARAMETER(dev_info);
+	UNREFERENCED_PARAMETER(pdev_info_data);
+
 	edev_t	*edev;
 	edev_list_ctx_t	*pctx = (edev_list_ctx_t *)ctx;
 
