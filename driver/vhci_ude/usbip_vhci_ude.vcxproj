@@ -231,7 +231,7 @@
       <Command>gencat.bat $(OutDir) 10_$(DDKPlatform) $(SolutionDir)\driver\usbip_test.pfx</Command>
     </PostBuildEvent>
     <Inf>
-      <TimeStamp>0.3.5.0</TimeStamp>
+      <TimeStamp>0.3.6.0</TimeStamp>
     </Inf>
     <DriverSign>
       <FileDigestAlgorithm>SHA1</FileDigestAlgorithm>
@@ -254,7 +254,7 @@
       <Command>gencat.bat $(OutDir) 10_$(DDKPlatform) $(SolutionDir)\driver\usbip_test.pfx</Command>
     </PostBuildEvent>
     <Inf>
-      <TimeStamp>0.3.5.0</TimeStamp>
+      <TimeStamp>0.3.6.0</TimeStamp>
     </Inf>
     <DriverSign>
       <FileDigestAlgorithm>SHA1</FileDigestAlgorithm>
@@ -278,7 +278,7 @@
       <Command>gencat.bat $(OutDir) 10_$(DDKPlatform) $(SolutionDir)\driver\usbip_test.pfx</Command>
     </PostBuildEvent>
     <Inf>
-      <TimeStamp>0.3.5.0</TimeStamp>
+      <TimeStamp>0.3.6.0</TimeStamp>
     </Inf>
     <DriverSign>
       <FileDigestAlgorithm>SHA1</FileDigestAlgorithm>
@@ -302,7 +302,7 @@
       <Command>gencat.bat $(OutDir) 10_VB_$(DDKPlatform) $(SolutionDir)\driver\usbip_test.pfx</Command>
     </PostBuildEvent>
     <Inf>
-      <TimeStamp>0.3.5.0</TimeStamp>
+      <TimeStamp>0.3.6.0</TimeStamp>
     </Inf>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -322,7 +322,7 @@
       <Command>gencat.bat $(OutDir) 10_$(DDKPlatform) $(SolutionDir)\driver\usbip_test.pfx</Command>
     </PostBuildEvent>
     <Inf>
-      <TimeStamp>0.3.5.0</TimeStamp>
+      <TimeStamp>0.3.6.0</TimeStamp>
     </Inf>
     <DriverSign>
       <FileDigestAlgorithm>SHA1</FileDigestAlgorithm>
@@ -345,7 +345,7 @@
       <Command>gencat.bat $(OutDir) 10_VB_$(DDKPlatform) $(SolutionDir)\driver\usbip_test.pfx</Command>
     </PostBuildEvent>
     <Inf>
-      <TimeStamp>0.3.5.0</TimeStamp>
+      <TimeStamp>0.3.6.0</TimeStamp>
     </Inf>
   </ItemDefinitionGroup>
   <ItemGroup>
