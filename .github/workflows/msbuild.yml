@@ -38,13 +38,13 @@ jobs:
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}} /property:Platform=ARM64
 
-    - name: Build x64
+    - name: Build x64 (AMD64)
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}} /property:Platform=x64
 
-    - name: Build x86
+    - name: Build x86 (Win32)
       working-directory: ${{env.GITHUB_WORKSPACE}}
       # Add additional options to the MSBuild command line here (like platform or verbosity level).
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
@@ -52,6 +52,7 @@ jobs:
 
     - name: Cleaning Source Codes
       working-directory: ${{env.GITHUB_WORKSPACE}}
+      continue-on-error: true
       run: |
         cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\ARM64\attacher\
         cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\ARM64\libdrv\
@@ -69,14 +70,14 @@ jobs:
         cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\x64\usbip_vhci\
         cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\x64\usbip_vhci_ude\
         cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\x64\usbipd\
-        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\x86\attacher\
-        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\x86\libdrv\
-        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\x86\usbip\
-        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\x86\usbip_common\
-        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\x86\usbip_stub\
-        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\x86\usbip_vhci\
-        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\x86\usbip_vhci_ude\
-        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\x86\usbipd\
+        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\Win32\attacher\
+        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\Win32\libdrv\
+        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\Win32\usbip\
+        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\Win32\usbip_common\
+        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\Win32\usbip_stub\
+        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\Win32\usbip_vhci\
+        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\Win32\usbip_vhci_ude\
+        cmd.exe /c rd /s /q D:\a\usbip-win\usbip-win\Release\Win32\usbipd\
 
     - name: Upload Artifact
       uses: actions/upload-artifact@master
