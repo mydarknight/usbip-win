@@ -50,7 +50,7 @@ jobs:
       # See https://docs.microsoft.com/visualstudio/msbuild/msbuild-command-line-reference
       run: msbuild /m /p:Configuration=${{env.BUILD_CONFIGURATION}} ${{env.SOLUTION_FILE_PATH}} /property:Platform=x86
 
-    - name: Copy usb.ids and usbip_stub.inx
+    - name: Copy usb.ids, usbip_stub.inx and usbip_test.pfx
       working-directory: ${{env.GITHUB_WORKSPACE}}
       run: |
         cmd.exe /c copy /y D:\a\usbip-win\usbip-win\userspace\usb.ids D:\a\usbip-win\usbip-win\Release\ARM64\
@@ -63,6 +63,7 @@ jobs:
         .\sed-4.9-x64.exe -i 's/NTamd64/NTarm64/gi' D:\a\usbip-win\usbip-win\Release\ARM64\usbip_stub.inx
         .\sed-4.9-x64.exe -i 's/NTamd64/NTx86/gi' D:\a\usbip-win\usbip-win\Release\Win32\usbip_stub.inx
         cmd.exe /c del sed-4.9-x64.exe
+        cmd.exe /c copy /y D:\a\usbip-win\usbip-win\driver\usbip_test.pfx D:\a\usbip-win\usbip-win\Release\
 
     - name: Cleaning Source Codes
       working-directory: ${{env.GITHUB_WORKSPACE}}
